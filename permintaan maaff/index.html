@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Surat Permintaan Maaf 💌</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Layer 1 -->
+    <div class="card active" id="layer1">
+      <h1>💌 Hai cwokuu</h1>
+      <p>Aku punya sesuatu untukmu...</p>
+      <button onclick="nextLayer(1)">Buka 💖</button>
+    </div>
+
+    <!-- Layer 2 -->
+    <div class="card" id="layer2">
+      <h1>🎀 Surat Rahasia</h1>
+      <p>Dibaca yaaa...</p>
+      <button onclick="nextLayer(2)">Buka Lagi 💕</button>
+    </div>
+
+    <!-- Layer 3 -->
+    <div class="card" id="layer3">
+      <h1>Maaf Ya...</h1>
+      <p>Maapinn akuuu yaa sayangku 🥺💗.</p>
+      <button onclick="nextLayer(3)">Lanjut 💗</button>
+    </div>
+
+    <!-- Layer 4 -->
+    <div class="card" id="layer4">
+      <h1>💖 dibacaaaa</h1>
+      <p>
+        aku sadarr aku salaahh ko.<br /><br />
+        tapi maapinn akuu yayayaya.<br />
+        akuu sedihh klo kamu bgnii huhuhuhuhu.<br /><br />
+        udahann yaa marahnyaa 🥺💗
+      </p>
+      <button onclick="showHearts()">lovee uuuu 💞</button>
+    </div>
+
+    <!-- Hearts -->
+    <div class="hearts" id="hearts"></div>
+
+    <script>
+      function nextLayer(current) {
+        document.getElementById("layer" + current).classList.remove("active");
+        document
+          .getElementById("layer" + (current + 1))
+          .classList.add("active");
+      }
+
+      function showHearts() {
+        document.getElementById("layer4").style.display = "none";
+        const hearts = document.getElementById("hearts");
+
+        for (let i = 0; i < 30; i++) {
+          let heart = document.createElement("div");
+          heart.className = "heart";
+          heart.innerHTML = "💖";
+          heart.style.left = Math.random() * 100 + "vw";
+          heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+          heart.style.fontSize = Math.random() * 20 + 20 + "px";
+          hearts.appendChild(heart);
+        }
+
+        hearts.style.display = "block";
+      }
+    </script>
+  </body>
+</html>
